@@ -15,14 +15,14 @@ namespace WebAPI.Controllers
         {
             _productService = productService;
         }
-        [HttpGet(template:"getall")]
+        [HttpGet(template: "getall")]
         public IActionResult GetList()
         {
-            var result=_productService.GetList();
-            if(result.Success) 
+            var result = _productService.GetList();
+            if (result.Success)
             {
                 return Ok(result.Data);
-            }  
+            }
             return BadRequest(result.Message);
         }
 
@@ -47,10 +47,10 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpPost(template:"add")]
+        [HttpPost(template: "add")]
         public IActionResult Add(Product product)
         {
-           var result= _productService.Add(product);
+            var result = _productService.Add(product);
             if (result.Success)
             {
                 return Ok(result.Message);
